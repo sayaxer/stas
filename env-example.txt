@@ -1,0 +1,8 @@
+Это просто памятка. В сам репозиторий ключ класть НЕ нужно — он идёт в Vercel.
+
+В Vercel -> Project -> Settings -> Environment Variables добавь две переменные:
+
+VITE_SUPABASE_URL = https://acacnyjsvvbbsbspvnlf.supabase.co
+VITE_SUPABASE_ANON_KEY = <твой anon public ключ из Supabase -> Settings -> API>
+
+service_role ключ никуда не вставляй.
