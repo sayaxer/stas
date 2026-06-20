@@ -1,7 +1,0 @@
-# Скопируй этот файл в .env и подставь свой anon public ключ.
-# Project URL уже подставлен (он публичный).
-# anon public ключ: Supabase -> Project Settings -> API -> Project API keys -> anon public
-# НИКОГДА не клади сюда service_role ключ.
-
-VITE_SUPABASE_URL=https://acacnyjsvvbbsbspvnlf.supabase.co
-VITE_SUPABASE_ANON_KEY=ВСТАВЬ_СЮДА_ANON_PUBLIC_КЛЮЧ
