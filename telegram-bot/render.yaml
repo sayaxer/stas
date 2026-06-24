@@ -1,5 +1,5 @@
 services:
-  - type: worker
+  - type: pserv
     name: telegram-userbot
     runtime: python
     plan: free
