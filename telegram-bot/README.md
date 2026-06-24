@@ -92,36 +92,49 @@ AI определяет:
 - RLS политики в Supabase
 - Userbot работает от твоего аккаунта
 
-## Деплой
+## Деплой на Render (бесплатно, 24/7)
 
-Для работы 24/7 можно развернуть на:
-- Render.com (бесплатный tier)
-- Railway.app
-- VPS сервер
+Для работы 24/7 без ноутбука - разверни на Render.com:
 
-Пример для Render:
-```yaml
-# render.yaml
-services:
-  - type: worker
-    name: telegram-userbot
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python userbot.py
-    envVars:
-      - key: API_ID
-        sync: false
-      - key: API_HASH
-        sync: false
-      - key: PHONE_NUMBER
-        sync: false
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: SUPABASE_URL
-        sync: false
-      - key: SUPABASE_ANON_KEY
-        sync: false
-```
+### Инструкция:
+
+1. **Зарегистрируйся на Render.com**
+   - https://render.com
+   - Авторизуйся через GitHub
+
+2. **Создай новый Web Service**
+   - Нажми "New +" → "Web Service"
+   - Подключи GitHub репозиторий `sayaxer/stas`
+   - Выбери папку `telegram-bot` как Root Directory
+
+3. **Настройки:**
+   - Name: `telegram-userbot`
+   - Runtime: `Python 3`
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `python userbot.py`
+
+4. **Environment Variables** (добавь все):
+   - `API_ID` = твой api_id
+   - `API_HASH` = твой api_hash
+   - `PHONE_NUMBER` = +48736452818
+   - `GEMINI_API_KEY` = твой Gemini ключ
+   - `SUPABASE_URL` = https://acacnyjsvvbbsbspvnlf.supabase.co
+   - `SUPABASE_ANON_KEY` = твой ANON ключ
+
+5. **Важно:**
+   - После первого деплоя бот запросит код подтверждения
+   - Код придёт в Telegram
+   - Введи его в Render Logs (вкладка Logs)
+   - После этого сессия сохранится и бот будет работать 24/7
+
+6. **Ограничения бесплатного плана:**
+   - Бот спит через 15 минут бездействия
+   - Пробуждается при новом сообщении (задержка ~30 сек)
+   - Для работы 24/7 без сна нужен платный план ($7/мес)
+
+### Альтернативы:
+- **Railway.app** - аналогично Render
+- **VPS сервер** - полный контроль, но платно
 
 ## Troubleshooting
 
