@@ -92,30 +92,30 @@ AI определяет:
 - RLS политики в Supabase
 - Userbot работает от твоего аккаунта
 
-## Деплой на Render (бесплатно, 24/7)
+## Деплой на Railway.app (бесплатно, 24/7)
 
-Для работы 24/7 без ноутбука - разверни на Render.com:
+Для работы 24/7 без ноутбука - разверни на Railway.app (бесплатный Background Worker):
 
 ### Инструкция:
 
-1. **Зарегистрируйся на Render.com**
-   - https://render.com
+1. **Зарегистрируйся на Railway.app**
+   - https://railway.app
    - Авторизуйся через GitHub
 
-2. **Создай новый Web Service**
-   - Нажми "New +" → "Web Service"
-   - Подключи GitHub репозиторий `sayaxer/stas`
-   - Выбери папку `telegram-bot` как Root Directory
+2. **Создай новый проект**
+   - Нажми "New Project" → "Deploy from GitHub repo"
+   - Выбери репозиторий `sayaxer/stas`
+   - Railway автоматически определит конфигурацию из `railway.json`
 
-3. **Настройки:**
-   - Name: `telegram-userbot`
-   - Runtime: `Python 3`
+3. **Настройки (если нужно вручную):**
+   - Root Directory: `telegram-bot`
    - Build Command: `pip install -r requirements.txt`
    - Start Command: `python userbot.py`
+   - Runtime: Python 3.11
 
-4. **Environment Variables** (добавь все):
-   - `API_ID` = твой api_id
-   - `API_HASH` = твой api_hash
+4. **Environment Variables** (добавь все в Variables tab):
+   - `API_ID` = 34364875
+   - `API_HASH` = 184998539d131d3b30a11dc19a579e6c
    - `PHONE_NUMBER` = +48736452818
    - `GEMINI_API_KEY` = твой Gemini ключ
    - `SUPABASE_URL` = https://acacnyjsvvbbsbspvnlf.supabase.co
@@ -124,16 +124,17 @@ AI определяет:
 5. **Важно:**
    - После первого деплоя бот запросит код подтверждения
    - Код придёт в Telegram
-   - Введи его в Render Logs (вкладка Logs)
+   - Введи его в Railway Logs (вкладка Logs)
    - После этого сессия сохранится и бот будет работать 24/7
 
-6. **Ограничения бесплатного плана:**
-   - Бот спит через 15 минут бездействия
-   - Пробуждается при новом сообщении (задержка ~30 сек)
-   - Для работы 24/7 без сна нужен платный план ($7/мес)
+6. **Ограничения бесплатного плана Railway:**
+   - $5 кредитов/мес (хватает для userbot)
+   - 512MB RAM
+   - Бот спит через 30 мин бездействия
+   - Пробуждается при новом сообщении
 
 ### Альтернативы:
-- **Railway.app** - аналогично Render
+- **Render.com** - Background Worker платный ($7/мес)
 - **VPS сервер** - полный контроль, но платно
 
 ## Troubleshooting
